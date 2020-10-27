@@ -1,0 +1,27 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: client
+
+logging:
+  level:
+    root: ${LOG_LEVEL:DEBUG}
+
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 5000
+        readTimeout: 30000
+ribbon:
+  ConnectTimeout: ${RIBBON_CONNECT_TIMEOUT:5000}
+  ReadTimeout: ${RIBBON_READ_TIMEOUT:30000}
+
+credit-approval-service:
+  ribbon:
+    listOfServers: ${CREDIT_APPROVAL_SERVICE:http://localhost:8070}
+notification-service:
+  ribbon:
+    listOfServers: ${NOTIFICATION_SERVICE:http://localhost:8060}
