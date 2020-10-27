@@ -1,0 +1,28 @@
+server:
+  port: 8070
+
+spring:
+  application:
+    name: credit-approval-service
+  jpa:
+    open-in-view: true
+    database: default
+    show-sql: ${SHOW_SQL:true}
+    properties:
+      hibernate:
+        show-sql: ${HIBERNATE_SHOW_SQL:true}
+        jdbc:
+          lob:
+            non_contextual_creation: true
+    hibernate:
+      ddl-auto: update
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    username: ${DB_USER_NAME:ega}
+    password: ${DB_PASSWORD:12345}
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/kocfinance}
+
+twilio:
+    SID: AC19332ae9552fdaf7064dff4bca986d56
+    auth_token: 4d400ba51ac3ea7b94ed6290c6781ef9
+    number: +12057497896
